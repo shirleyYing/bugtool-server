@@ -9,7 +9,7 @@
 - 可根据日志文件检索，支持分类筛选，不通类别可指定颜色用于页面显示，按照时间轴展示日志内容，包含错误信息概览，发生时间，发生错误接口，log打印位置，原始日志等信息
 
 页面展示效果如下
-![image](./assets/example.png)
+![image](https://github.com/shirleyYing/bugtool-server/blob/master/server/assets/example.png)
 
 ## 使用说明
 
