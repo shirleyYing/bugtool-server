@@ -7,7 +7,8 @@
  */
 const importFresh = require("import-fresh");
 const internalPattern = require("./config/internalPattern");
-const _ = require("lodash");
+const cloneDeep = require("lodash.clonedeep");
+const uniqBy = require("lodash.uniqBy")
 /**
  * 启动任务管理
  */
@@ -37,7 +38,7 @@ module.exports = async (dir, fileName) => {
     pattern = importFresh(`./pattern.js`);
   }
   const ruleObj = pattern.rules || {};
-  let patternObj = _.cloneDeep(internalPattern);
+  let patternObj = cloneDeep(internalPattern);
   let errorTypeList = [];
 
   Object.keys(ruleObj).forEach(type => {
@@ -46,7 +47,7 @@ module.exports = async (dir, fileName) => {
       // 如果配置的error类型与系统内置相同，则合并并去重
       if (patternList && Array.isArray(patternList)) {
         const arr = patternList.concat(internalPattern[type].patternList);
-        patternObj[type].patternList = _.uniqBy(arr, "lineRegxPattern");
+        patternObj[type].patternList = uniqBy(arr, "lineRegxPattern");
       }
       ["color", "type", "typeLabel"].forEach(key => {
         if (ruleObj[type][key]) {
