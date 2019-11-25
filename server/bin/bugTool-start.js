@@ -13,8 +13,8 @@ program.parse(process.argv);
 
 async function run() {
   try {
-    let { ip = "0.0.0.0", port = 10240 } = program;
-    await wds.run(ip, port);
+    let { ip = "0.0.0.0", port = 10240, dir, fileName } = program;
+    await wds.run(ip, port, dir, fileName);
   } catch (err) {
     console.error(colors.grey(err.stack));
     console.error("❗️ " + colors.red(err.message));

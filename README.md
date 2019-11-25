@@ -13,7 +13,7 @@
 
 ## 使用说明
 
-1. 安装: `tnpm install @tencent/bug-tool`
+1. 安装: `npm install bugtool-server`
 2. 启动: `npx bugTool start -i <ip> -p <port> -d <dir> -f <fileName>`，
 默认值：ip:0.0.0.0,port:10240,dir:logs(相对路径，项目根路径下logs),fileName:简单写法 `bugTool start` 
 3. 浏览器访问 https://${ip}:${port},查看页面
